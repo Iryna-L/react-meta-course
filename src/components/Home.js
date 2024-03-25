@@ -1,14 +1,16 @@
 
 import Header from './Header';
 import Baner from './Baner';
-import Highlights from './Highlights';
+import Specials from './Specials';
+import Footer from './Footer';
 
 function HomePage () {
   return (
     <div>
       <Header />
       <Baner />
-      <Highlights />
+      <Specials />
+      <Footer/>
     </div>
   );
 }
