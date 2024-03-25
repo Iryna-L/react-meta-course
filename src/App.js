@@ -34,23 +34,23 @@ function App() {
     element: <HomePage />,
   },
   {
-    path: "/about",
+    path: "/",
     element: <HomePage />,
   },
   {
-    path: "/menu",
+    path: "/",
     element: <HomePage />,
   },
   {
-    path: "/reservations",
+    path: "/",
     element: <HomePage />,
   },
   {
-    path: "/order-online",
+    path: "/",
     element: <HomePage />,
   },
   {
-    path: "/login",
+    path: "/",
     element: <HomePage />,
   },
   {
