@@ -25,7 +25,7 @@ const submitAPI = function (formData) {
   const { date , time} = formData;
   const key = `${date} - ${time}`
   if (localStorage.getItem(key)) {
-    alert('The time is booked')
+    alert('The time is already booked')
     return false
   }
   localStorage.setItem(key, JSON.stringify(formData));
