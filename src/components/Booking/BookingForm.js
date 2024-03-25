@@ -46,14 +46,14 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>Reserve a table</h1>
+      <h1>Book Now</h1>
       <div className="form-group">
         <label htmlFor="Date">Date</label>
-        <input type="date" name='date' value={date} onChange={handleDateChange} required />
+        <input id="Date" type="date" name='date' value={date} onChange={handleDateChange} required />
       </div>
       <div className="form-group">
         <label htmlFor="time">Time</label>
-        <select name='time' value={time} onChange={(e) => setTime(e.target.value)} required>
+        <select id="time" name='time' value={time} onChange={(e) => setTime(e.target.value)} required>
           {
             availableTimes.times.map((time, index) => {
               return <option value={time} key={index}>{time}</option>
@@ -63,11 +63,11 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
       </div>
       <div className="form-group">
         <label htmlFor="guests">Guests</label>
-        <input type="number" min="1" max="10" value={guests} onChange={(e) => setGuests(e.target.value)} required />
+        <input id="guests" type="number" min="1" max="10" value={guests} onChange={(e) => setGuests(e.target.value)} required />
       </div>
       <div className="form-group">
         <label htmlFor="occassion">Occassion</label>
-        <select name='occassion' value={occasion} onChange={(e) => setOccasion(e.target.value)} >
+        <select id="occassion" name='occassion' value={occasion} onChange={(e) => setOccasion(e.target.value)} >
           <option value="none">None</option>
           <option value="Birthday">Birthday</option>
           <option value="Anniversary">Anniversary</option>
