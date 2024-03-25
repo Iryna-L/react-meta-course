@@ -1,7 +1,7 @@
 import React from 'react'
 import FoodCardsList from './FoodCards/FoodCardsList'
 
-const Highlights = () => {
+const Specials = () => {
   return (
     <section id="highlights">
       <div className="container">
@@ -15,4 +15,4 @@ const Highlights = () => {
   )
 }
 
-export default Highlights
+export default Specials

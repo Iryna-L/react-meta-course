@@ -4,6 +4,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import HomePage from "./components/Home"
+import BookingPage from "./components/Booking/BookingPage"
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <HomePage />,
   },
+  {
+    path: "booking",
+    element: <BookingPage />,
+  }
 ]);
 
 function App() {
