@@ -6,21 +6,23 @@ import {
 import HomePage from "./components/Home"
 import BookingPage from "./components/Booking/BookingPage"
 import { useReducer } from 'react'
+import {fetchAPI, submitAPI} from "./server/api"
 
 function App() {
   function initializeTimes() {
     return {
-      times: ['16:00', '17:00', '18:00', '19:00', '20:00'],
+      times: [...fetchAPI(new Date())] || [],
     };
   }
 
   function reducer(state, action) {
-    const newTimes = ['16:00', '17:00', '18:00', '19:00', '20:00']
+    const newBookingDate = action.setBookingDate;
+    const newTimes = fetchAPI(newBookingDate);
     return { times: [...newTimes] };
   }
 
   function submitForm(formData) {
-    console.log('submit', formData)
+    submitAPI(formData);
   }
 
   const initialState = initializeTimes();

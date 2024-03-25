@@ -39,7 +39,7 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
       date: date,
       time: time,
       guests: guests,
-      occassion: occasion
+      occasion: occasion
     }
     submitForm(reservation);
   }
@@ -66,8 +66,8 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
         <input id="guests" type="number" min="1" max="10" value={guests} onChange={(e) => setGuests(e.target.value)} required />
       </div>
       <div className="form-group">
-        <label htmlFor="occassion">Occassion</label>
-        <select id="occassion" name='occassion' value={occasion} onChange={(e) => setOccasion(e.target.value)} >
+        <label htmlFor="occasion">Occasion</label>
+        <select id="occasion" name='occasion' value={occasion} onChange={(e) => setOccasion(e.target.value)} >
           <option value="none">None</option>
           <option value="Birthday">Birthday</option>
           <option value="Anniversary">Anniversary</option>
