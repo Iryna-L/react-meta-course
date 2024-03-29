@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import * as Yup from 'yup';
 
 const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
   const initDate = new Date();
@@ -12,37 +13,42 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
   const [guests, setGuests] = useState(2);
   const [occasion, setOccasion] = useState('none');
 
-  function isFutureDate(dateString) {
-    const ds = dateString.split('-');
-    const dateObj = new Date(parseInt(ds[0]), parseInt(ds[1]) - 1, parseInt(ds[2]));
-    return dateObj > new Date();
-  }
+  const schema = Yup.object().shape({
+    date: Yup.date().required('Date is required').min(new Date(), 'Date must be in the future'),
+    time: Yup.string().required('Time is required'),
+    guests: Yup.number().required('Number of guests is required').min(1, 'Minimum 1 guest required').max(10, 'Maximum 10 guests allowed'),
+    occasion: Yup.string().required('Occasion is required'),
+  });
 
-  function getDateObject(dateString) {
-    const ds = dateString.split('-');
-    return new Date(parseInt(ds[0]), parseInt(ds[1]) - 1, parseInt(ds[2]));
-  }
-
-  function handleDateChange(e) {
-    if (!isFutureDate(e.target.value)) {
-      alert(`Sorry! Reservations not available for this date!`);
-      return;
+  const validateForm = async () => {
+    try {
+      await schema.validate({ date, time, guests, occasion }, { abortEarly: false });
+      return true;
+    } catch (errors) {
+      alert(errors)
+      console.error(errors);
+      return false;
     }
-    const dateObject = getDateObject(e.target.value);
-    setDate(e.target.value);
-    setAvailableTimes({ setBookingDate: dateObject });
-  }
+  };
 
-  function handleSubmit(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const reservation = {
-      date: date,
-      time: time,
-      guests: guests,
-      occasion: occasion
-    };
-    submitForm(reservation);
-  }
+    const isValid = await validateForm();
+    if (isValid) {
+      const reservation = {
+        date: date,
+        time: time,
+        guests: guests,
+        occasion: occasion
+      };
+      submitForm(reservation);
+    }
+  };
+
+  const handleDateChange = (e) => {
+    setDate(e.target.value);
+    setAvailableTimes({ setBookingDate: new Date(e.target.value) });
+  };
 
   return (
     <form onSubmit={handleSubmit} aria-label="Booking Form">
@@ -71,7 +77,7 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
           <option value="Anniversary">Anniversary</option>
         </select>
       </div>
-      <input type="submit" value="Confirm Reservation" role="button" aria-label="Submit" />
+      <button type="submit" aria-label="Submit">Confirm Reservation</button>
     </form>
   );
 };

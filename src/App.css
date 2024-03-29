@@ -326,15 +326,11 @@ header>div>ul>li>a {
   font-weight: 500;
 }
 
-#booktable {
-  /* background-color: var(--color-primary); */
-}
-
 form {
   font-family: 'Karla', sans-serif;
   margin: auto;
-  width: 45vw;
-  padding: 8vh 5vw;
+  width: 500px;
+  padding: 16px;
 }
 
 form>h1 {
@@ -347,13 +343,6 @@ input,
 select {
   display: block;
   width: 100%;
-  margin: 0.5vh 0;
-  padding: 1vw;
-  font-size: 1rem;
-  -ms-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
   outline-color: var(--color-primary);
   background: none;
   border: none;
@@ -372,22 +361,17 @@ select:hover {
   cursor: pointer;
 }
 
-input[type="date"]::-webkit-calendar-picker-indicator {
-  padding-left: 35vw;
-}
-
 label {
-  margin-top: 3vh;
+  margin-top: 16px;
   display: block;
   font-size: 18px;
   font-weight: 500;
   color: var(--color-primary);
 }
 
-input[type=submit] {
-  margin-top: 4vh;
-  padding-top: 2vh;
-  padding-bottom: 2vh;
+input[type=submit], button[type=submit] {
+  margin: 40px 0;
+  padding: 0 16px;
   background-color: var(--color-secondary);
   border-radius: 8px;
   outline: none;
@@ -395,10 +379,8 @@ input[type=submit] {
   cursor: pointer;
   font-size: 20px;
   transition: all 0.2s ease;
-}
-
-input[type=submit]:hover {
-  font-size: 22px;
+  width: 100%;
+  height: 40px;
 }
 
 
