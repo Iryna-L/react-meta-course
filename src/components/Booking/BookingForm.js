@@ -77,7 +77,7 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
           <option value="Anniversary">Anniversary</option>
         </select>
       </div>
-      <button type="submit" value="Confirm Reservation" aria-label="Submit" />
+      <button type="submit" aria-label="Submit">Confirm Reservation</button>
     </form>
   );
 };
