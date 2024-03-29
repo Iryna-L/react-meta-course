@@ -3,7 +3,7 @@ import Header from './Header';
 import Baner from './Baner';
 import Specials from './Specials';
 import Footer from './Footer';
-import Testimonials from './Testimonials';
+import Testimonials from './Testimonials/Testimonials';
 
 function HomePage () {
   return (

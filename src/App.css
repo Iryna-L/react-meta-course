@@ -384,7 +384,7 @@ label {
   color: var(--color-primary);
 }
 
-input[type=submit] {
+input[type=submit], button[type=submit] {
   margin-top: 4vh;
   padding-top: 2vh;
   padding-bottom: 2vh;

@@ -1,6 +1,6 @@
 import React from 'react'
 import Testimonial from './Testimonial'
-import Person1 from '../assets/person.jpeg'
+import Person1 from '../../assets/person.jpeg'
 
 const Testimonials = () => {
   return (
