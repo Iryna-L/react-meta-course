@@ -34,26 +34,6 @@ function App() {
     element: <HomePage />,
   },
   {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
-    path: "/",
-    element: <HomePage />,
-  },
-  {
     path: "booking",
     element: <BookingPage
       availableTimes={availableTimes}
