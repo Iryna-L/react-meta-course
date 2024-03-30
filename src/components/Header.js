@@ -7,12 +7,8 @@ const Header = () => {
       <div className="container">
         <img src={Logo} alt="Little Lemon logo" />
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/">Menu</Link></li>
-          <li><Link to="/">Reservations</Link></li>
-          <li><Link to="/">Order-Online</Link></li>
-          <li><Link to="/">About</Link></li>
-          <li><Link to="/">Login</Link></li>
+          <li className='nav-link'><Link to="/">Home</Link></li>
+          <li className='nav-link'><Link to="/booking">Reservations</Link></li>
         </ul>
       </div>
     </header>

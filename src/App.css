@@ -28,10 +28,18 @@ header>div>ul>li {
   cursor: pointer;
 }
 
-header>div>ul>li>a {
+header .nav-link a {
   text-decoration: none;
   color: black;
   font-size: 18px;
+  border-radius: 8px;
+  padding: 8px;
+  transition: all 0.2s ease;
+}
+
+header .nav-link a:hover {
+  cursor: pointer;
+  background-color: #F4CE14;
 }
 
 #hero {
@@ -402,10 +410,6 @@ input[type=submit], button[type=submit] {
   .container {
     padding: 1vh 0;
     width: 90vw;
-  }
-
-  header>div>ul {
-    display: none;
   }
 
   #hero {

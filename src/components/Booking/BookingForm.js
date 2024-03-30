@@ -9,9 +9,9 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
   const DD = initDate.getDate().toString().padStart(2, '0');
 
   const [date, setDate] = useState(`${YYYY}-${MM}-${DD}`);
-  const [time, setTime] = useState('17:00');
-  const [guests, setGuests] = useState(2);
-  const [occasion, setOccasion] = useState('none');
+  const [time, setTime] = useState('');
+  const [guests, setGuests] = useState(0);
+  const [occasion, setOccasion] = useState('');
 
   const schema = Yup.object().shape({
     date: Yup.date().required('Date is required').min(new Date(), 'Date must be in the future'),
@@ -26,7 +26,6 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
       return true;
     } catch (errors) {
       alert(errors)
-      console.error(errors);
       return false;
     }
   };
@@ -42,6 +41,7 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
         occasion: occasion
       };
       submitForm(reservation);
+      clearForm()
     }
   };
 
@@ -49,6 +49,13 @@ const BookingForm = ({ availableTimes, setAvailableTimes, submitForm }) => {
     setDate(e.target.value);
     setAvailableTimes({ setBookingDate: new Date(e.target.value) });
   };
+
+  const clearForm = () => {
+    setDate(`${YYYY}-${MM}-${DD}`)
+    setTime('')
+    setGuests(0)
+    setOccasion('')
+  }
 
   return (
     <form onSubmit={handleSubmit} aria-label="Booking Form">
